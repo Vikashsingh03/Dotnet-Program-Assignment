@@ -1,0 +1,24 @@
+CREATE DATABASE StudentDB;
+GO
+
+USE StudentDB;
+GO
+
+CREATE TABLE Students (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    Name NVARCHAR(100) NOT NULL,
+    Email NVARCHAR(150) NOT NULL,
+    Course NVARCHAR(50) NOT NULL,
+    CreatedAt DATETIME DEFAULT GETDATE()
+);
+GO
+
+CREATE TABLE Users (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    Username NVARCHAR(50) NOT NULL UNIQUE,
+    Password NVARCHAR(100) NOT NULL
+);
+GO
+
+INSERT INTO Users (Username, Password) VALUES ('admin', 'admin123');
+GO
